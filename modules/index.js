@@ -2,6 +2,7 @@ exports.createRouter = require('./createRouter');
 exports.createRoutesFromReactChildren = require('./createRoutesFromReactChildren');
 exports.Navigation = require('./Navigation');
 exports.State = require('./State');
+exports.Transition = require('./Transition');
 
 exports.ImitateBrowserBehavior = require('./behaviors/ImitateBrowserBehavior');
 exports.ScrollToTopBehavior = require('./behaviors/ScrollToTopBehavior');
