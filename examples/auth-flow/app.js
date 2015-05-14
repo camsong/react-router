@@ -121,25 +121,16 @@ var App = React.createClass({
   }
 });
 
-var Router = createRouter({
-  history: HashHistory,
-  routes: (
-    <Route component={App}>
-      <Route name="login" component={Login}/>
-      <Route name="logout" component={Logout}/>
-      <Route name="about" component={About}/>
-      <Route name="dashboard" component={Dashboard}/>
-    </Route>
-  ),
-  onChange(router, prevState, nextState) {
-    var { components } = nextState;
-    
-    // TODO: Wrap this up in some util function?
-    components.forEach(function (component) {
-      if (component.routerWillEnter)
-        component.routerWillEnter(router, nextState);
-    });
-  }
-});
+var Router = createRouter(
+  <Route component={App}>
+    <Route name="login" component={Login}/>
+    <Route name="logout" component={Logout}/>
+    <Route name="about" component={About}/>
+    <Route name="dashboard" component={Dashboard}/>
+  </Route>
+);
 
-React.render(<Router/>, document.getElementById('example'));
+React.render(
+  <Router history={HashHistory}/>,
+  document.getElementById('example')
+);
